@@ -5,7 +5,7 @@
 
 * 2. Implicit Binding - When you call a function or when it is invoked, to the left of the dot is what what 'this' is referencing.
 
-* 3. new Binding -
+* 3. new Binding - When function is invoked with new keyword the this keyword inside function is bound to constructed item.
 
 * 4. Explicit Binding - When you call a funtion you explicitly state what the this keyword is going to reference.
 *
@@ -29,6 +29,14 @@ me.sayName();
 
 // Principle 3
 // code example for New Binding
+var Player = function(color, name, shape) {
+    this.color = color;
+    this.name = name;
+    this.shape = shape;
+};
+
+var square = new Player('orange', 'Isaiah', 'square');
+console.log(square)
 
 // Principle 4
 // code example for Explicit Binding
