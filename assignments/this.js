@@ -1,7 +1,7 @@
 /* The for principles of "this";
 * in your own words. explain the four principle for the "this" keyword below.
 *
-* 1. window Binding -
+* 1. window Binding - When you call a function if none of the rules apply the this keyword defaults to the window object.
 
 * 2. Implicit Binding - When you call a function or when it is invoked, to the left of the dot is what what 'this' is referencing.
 
@@ -14,6 +14,16 @@
 
 // Principle 1
 // code example for Window Binding
+var sayAge =function(){
+    console.log(this.age)
+};
+
+var me = {
+    age: 18
+};
+
+window.age = 18;
+sayAge();
 
 // Principle 2
 // code example for Implicit Binding
