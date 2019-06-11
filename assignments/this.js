@@ -32,8 +32,8 @@ me.sayName();
 
 // Principle 4
 // code example for Explicit Binding
-var sayName = function() {
-    console.log(`My name is ${this.name}`);
+var sayName = function(lang1, lang2, lang3) {
+    console.log(`My name is ${this.name} and I know ${lang1}, ${lang2}, and ${lang3}!`);
 };
 
 var me = {
@@ -41,4 +41,6 @@ var me = {
     age: 18,
 };
 
-sayName.call(me);
+var languages = ['HTML', 'CSS', 'Javascript'];
+
+sayName.call(me, languages[0], languages[1], languages[2]);
