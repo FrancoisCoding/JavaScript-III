@@ -43,4 +43,4 @@ var me = {
 
 var languages = ['HTML', 'CSS', 'Javascript'];
 
-sayName.call(me, languages[0], languages[1], languages[2]);
+sayName.apply(me, languages);
