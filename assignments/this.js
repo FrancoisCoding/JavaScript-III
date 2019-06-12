@@ -1,15 +1,6 @@
 /* The for principles of "this";
 * in your own words. explain the four principle for the "this" keyword below.
 *
-* 1. window Binding - When you call a function if none of the rules apply the this keyword defaults to the window object.
-
-* 2. Implicit Binding - When you call a function or when it is invoked, to the left of the dot is what what 'this' is referencing.
-
-* 3. new Binding - When function is invoked with new keyword the this keyword inside function is bound to constructed item.
-
-* 4. Explicit Binding - When you call a funtion you explicitly state what the this keyword is going to reference.
-*
-* write out a code example of each explanation above
 */
 
 // Principle 1
