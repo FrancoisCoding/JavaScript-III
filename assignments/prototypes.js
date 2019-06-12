@@ -64,7 +64,37 @@ Humanoid.prototype.greet = function () {
   return `${this.name} offers a greeting in ${this.language}.`
 }
 
+function Hero (HeroAttrs) {
+  Humanoid.call(this, HeroAttrs);
+  this.enemy = HeroAttrs.enemy
+}
 
+Hero.prototype = Object.create(Humanoid.prototype)
+
+
+Hero.prototype.attack = function () {
+  return `Hero: ${this.name} attacks ${this.enemy}. Now ${this.enemy} now has ${this.healthPoints-10}`
+}
+
+Hero.prototype.super = function () {
+  return `Hero: Prepare to be vanquished villain!! ${this.name} launches his sword and now ${this.enemy} has ${this.healthPoints-35} health`
+}
+
+function Villain (VillainAttrs) {
+  Humanoid.call(this, VillainAttrs);
+  this.enemy = VillainAttrs.enemy
+}
+
+Villain.prototype = Object.create(Humanoid.prototype)
+
+
+Villain.prototype.laugh = function () {
+  return `Villain: MWA HA HA!!.`
+}
+
+Villain.prototype.attackH = function () {
+  return `Villain: ${this.name} attacks ${this.enemy}. Now ${this.enemy} now has ${this.healthPoints-10}`
+}
 /*
   * Inheritance chain: GameObject -> CharacterStats -> Humanoid
   * Instances of Humanoid should have all of the same properties as CharacterStats and GameObject.
@@ -120,23 +150,39 @@ Humanoid.prototype.greet = function () {
     ],
     language: 'Elvish',
   });
-  // const hero = new Hero({
-  //   createdAt: 'Beginning of time',
-  //   dimensions: {
-  //     length: 3,
-  //     width: 1,
-  //     height: 4,
-  //   },
-  //   healthPoints: 20,
-  //   name: 'Isaiah',
-  //   team: 'Justice',
-  //   weapons: [
-  //     'Sword of Light',
-  //     'Shield of Power',
-  //   ],
-  //   language: 'English',
-  //   enemy: 'Alfred',
-  // });
+  const hero = new Hero({
+    createdAt: 'Beginning of time',
+    dimensions: {
+      length: 3,
+      width: 1,
+      height: 4,
+    },
+    healthPoints: 35,
+    name: 'Isaiah',
+    team: 'Justice',
+    weapons: [
+      'Sword of Light',
+      'Shield of Power',
+    ],
+    language: 'English',
+    enemy: 'Alfred',
+  });
+  const villain = new Villain({
+    createdAt: 'Within the same time darkness was created',
+    dimensions: {
+      length: 8,
+      width: 1,
+      height: 2,
+    },
+    healthPoints: 30,
+    name: 'Alfred',
+    team: 'Evil',
+    weapons: [
+      'Evil Orb',
+    ],
+    language: 'Ancient Dialect',
+    enemy: 'Isaiah',
+  });
   console.log(mage.createdAt); // Today's date
   console.log(archer.dimensions); // { length: 1, width: 2, height: 4 }
   console.log(swordsman.healthPoints); // 15
@@ -147,21 +193,15 @@ Humanoid.prototype.greet = function () {
   console.log(archer.greet()); // Lilith offers a greeting in Elvish.
   console.log(mage.takeDamage()); // Bruce took damage.
   console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
-  // console.log(hero.destroy());
+  console.log(hero.attack());
+  console.log(villain.attackH());
+  console.log(villain.laugh());
+  console.log(hero.super());
+  villain.destroy();
 
   // Stretch task: 
   // * Create Villain and Hero constructor functions that inherit from the Humanoid constructor function.  
   // * Give the Hero and Villains different methods that could be used to remove health points from objects which could result in destruction if health gets to 0 or drops below 0;
   // * Create two new objects, one a villain and one a hero and fight it out with methods!
-//  function Hero (HeroAttrs) {
-//   Humanoid.call(this, HeroAttrs);
-//   this.enemy = HeroAttrs.enemy
-// }
 
-// Hero.prototype = Object.create(Humanoid.prototype)
-
-
-// Hero.prototype.attack = function () {
-//   return `${this.name} attacks ${this.enemy}.`
-// }
 
