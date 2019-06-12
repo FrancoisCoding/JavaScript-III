@@ -1,9 +1,5 @@
-/* The for principles of "this";
-* in your own words. explain the four principle for the "this" keyword below.
-*
-*/
-
 // Principle 1
+
 // code example for Window Binding
 var sayAge =function(){
     console.log(this.age)
@@ -17,8 +13,8 @@ window.age = 18;
 sayAge();
 
 // Principle 2
-// code example for Implicit Binding
 
+// code example for Implicit Binding
 var me = {
     name: 'Isaiah',
     age: 18,
@@ -29,6 +25,7 @@ var me = {
 me.sayName();
 
 // Principle 3
+
 // code example for New Binding
 var Player = function(color, name, shape) {
     this.color = color;
@@ -40,6 +37,7 @@ var square = new Player('orange', 'Isaiah', 'square');
 console.log(square)
 
 // Principle 4
+
 // code example for Explicit Binding
 var sayName = function(lang1, lang2, lang3) {
     console.log(`My name is ${this.name} and I know ${lang1}, ${lang2}, and ${lang3}!`);
